@@ -365,8 +365,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Support
 
 - **Documentation**: [https://aim-framework.readthedocs.io/](https://aim-framework.readthedocs.io/)
-- **Issues**: [GitHub Issues](https://github.com/jasonviipers-ai/aim-framework/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/jasonviipers-ai/aim-framework/discussions)
+- **Issues**: [GitHub Issues](https://github.com/jasonviipers/aim-framework/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/jasonviipers/aim-framework/discussions)
 - **Email**: support@jasonviipers
 
 ## Citation
@@ -376,9 +376,9 @@ If you use the AIM Framework in your research, please cite:
 ```bibtex
 @software{aim_framework,
   title={AIM Framework: Adaptive Intelligence Mesh},
-  author={jasonviipers AI},
+  author={jasonviipers},
   year={2025},
-  url={https://github.com/jasonviipers-ai/aim-framework}
+  url={https://github.com/jasonviipers/aim-framework}
 }
 ```
 

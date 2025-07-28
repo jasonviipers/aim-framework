@@ -30,45 +30,46 @@ Example usage:
 """
 
 __version__ = "1.0.0"
-__author__ = "jasonviipers AI"
+__author__ = "jasonviipers"
 __email__ = "support@jasonviipers"
 __license__ = "MIT"
 
-# Core imports
-from .core.framework import AIMFramework
-from .core.agent import Agent, AgentCapability
-from .core.context import ContextThread, ContextManager
-from .core.request import Request, Response
-
-# Coordination imports
-from .coordination.router import CapabilityRouter
-from .coordination.collaborator import ConfidenceBasedCollaborator
-
-# Resource management imports
-from .resources.scaler import AdaptiveResourceScaler
-from .resources.monitor import PerformanceMonitor
-
-# Knowledge management imports
-from .knowledge.capsule import KnowledgeCapsule
-from .knowledge.propagator import LearningPropagator
-from .knowledge.intent_graph import IntentGraph
+from .api.client import AIMClient
 
 # API imports
 from .api.server import AIMServer
-from .api.client import AIMClient
+from .coordination.collaborator import ConfidenceBasedCollaborator
+
+# Coordination imports
+from .coordination.router import CapabilityRouter
+from .core.agent import Agent, AgentCapability
+from .core.context import ContextManager, ContextThread
+
+# Exception imports
+from .core.exceptions import (
+    AgentNotFoundError,
+    AIMException,
+    CapabilityNotAvailableError,
+    ConfigurationError,
+    ContextNotFoundError,
+)
+
+# Core imports
+from .core.framework import AIMFramework
+from .core.request import Request, Response
+
+# Knowledge management imports
+from .knowledge.capsule import KnowledgeCapsule
+from .knowledge.intent_graph import IntentGraph
+from .knowledge.propagator import LearningPropagator
+from .resources.monitor import PerformanceMonitor
+
+# Resource management imports
+from .resources.scaler import AdaptiveResourceScaler
 
 # Utility imports
 from .utils.config import Config
 from .utils.logger import get_logger
-
-# Exception imports
-from .core.exceptions import (
-    AIMException,
-    AgentNotFoundError,
-    CapabilityNotAvailableError,
-    ContextNotFoundError,
-    ConfigurationError,
-)
 
 __all__ = [
     # Core classes
@@ -79,28 +80,22 @@ __all__ = [
     "ContextManager",
     "Request",
     "Response",
-    
     # Coordination classes
     "CapabilityRouter",
     "ConfidenceBasedCollaborator",
-    
     # Resource management classes
     "AdaptiveResourceScaler",
     "PerformanceMonitor",
-    
     # Knowledge management classes
     "KnowledgeCapsule",
     "LearningPropagator",
     "IntentGraph",
-    
     # API classes
     "AIMServer",
     "AIMClient",
-    
     # Utility classes
     "Config",
     "get_logger",
-    
     # Exceptions
     "AIMException",
     "AgentNotFoundError",
@@ -117,7 +112,13 @@ __package_info__ = {
     "author": __author__,
     "author_email": __email__,
     "license": __license__,
-    "url": "https://github.com/jasonviipers-ai/aim-framework",
-    "keywords": ["ai", "artificial-intelligence", "distributed-systems", "mesh-network", "coordination", "agents"],
+    "url": "https://github.com/jasonviipers/aim-framework",
+    "keywords": [
+        "ai",
+        "artificial-intelligence",
+        "distributed-systems",
+        "mesh-network",
+        "coordination",
+        "agents",
+    ],
 }
-

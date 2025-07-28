@@ -5,11 +5,10 @@ This module contains components for managing system resources,
 including adaptive scaling and performance monitoring.
 """
 
-from .scaler import AdaptiveResourceScaler
 from .monitor import PerformanceMonitor
+from .scaler import AdaptiveResourceScaler
 
 __all__ = [
     "AdaptiveResourceScaler",
     "PerformanceMonitor",
 ]
-

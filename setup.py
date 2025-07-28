@@ -19,12 +19,12 @@ def read_requirements():
 setup(
     name="aim-framework",
     version="1.0.0",
-    author="jasonviipers AI",
+    author="jasonviipers",
     author_email="support@jasonviipers",
     description="Adaptive Intelligence Mesh - A distributed coordination system for AI deployment and interaction",
     long_description=read_readme(),
     long_description_content_type="text/markdown",
-    url="https://github.com/jasonviipers-ai/aim-framework",
+    url="https://github.com/jasonviipers/aim-framework",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     classifiers=[
@@ -87,8 +87,8 @@ setup(
     zip_safe=False,
     keywords="ai artificial-intelligence distributed-systems mesh-network coordination agents",
     project_urls={
-        "Bug Reports": "https://github.com/jasonviipers-ai/aim-framework/issues",
-        "Source": "https://github.com/jasonviipers-ai/aim-framework",
+        "Bug Reports": "https://github.com/jasonviipers/aim-framework/issues",
+        "Source": "https://github.com/jasonviipers/aim-framework",
         "Documentation": "https://aim-framework.readthedocs.io/",
     },
 )

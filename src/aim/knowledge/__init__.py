@@ -6,12 +6,11 @@ learning propagation, and intent prediction across the agent mesh.
 """
 
 from .capsule import KnowledgeCapsule
-from .propagator import LearningPropagator
 from .intent_graph import IntentGraph
+from .propagator import LearningPropagator
 
 __all__ = [
     "KnowledgeCapsule",
-    "LearningPropagator", 
+    "LearningPropagator",
     "IntentGraph",
 ]
-
