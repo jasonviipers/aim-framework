@@ -128,7 +128,7 @@ class AIMClient:
             f"{self.base_url}/agents/{agent_id}", timeout=self.timeout
         )
         response.raise_for_status()
-        return response.json()
+        return response.json().get("agent", {})
 
     def create_context_thread(
         self, user_id: str, initial_context: Optional[Dict[str, Any]] = None
@@ -246,10 +246,25 @@ class AIMClient:
         """Close the client session."""
         self.session.close()
 
-    def __enter__(self):
-        """Context manager entry."""
+    def __enter__(self) -> "AIMClient":
+        """Context manager entry.
+
+        Returns:
+            AIMClient: The client instance
+        """
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        """Context manager exit."""
+    def __exit__(
+        self,
+        exc_type: Optional[type],
+        exc_val: Optional[Exception],
+        exc_tb: Optional[Any],
+    ) -> None:
+        """Context manager exit.
+
+        Args:
+            exc_type: Type of the exception
+            exc_val: Instance of the exception
+            exc_tb: Traceback object
+        """
         self.close()

@@ -92,7 +92,7 @@ repos:
     hooks:
       - id: bandit
         description: Security linting with bandit
-        args: ['-r', 'src/', '-f', 'custom']
+        args: ['-r', 'src']
         exclude: ^tests/
 
   # Dependency vulnerability checking with safety

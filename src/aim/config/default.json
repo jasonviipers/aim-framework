@@ -1,0 +1,103 @@
+{
+  "framework": {
+    "name": "AIM Framework",
+    "version": "1.0.0",
+    "log_level": "INFO",
+    "cleanup_interval": 300.0,
+    "start_time": null
+  },
+  "agents": {
+    "min_agents_per_type": 1,
+    "max_agents_per_type": 5,
+    "default_timeout": 30.0,
+    "heartbeat_interval": 60.0,
+    "default_agent_types": [
+      "code_generation",
+      "security_review",
+      "documentation",
+      "data_analysis",
+      "design",
+      "research"
+    ]
+  },
+  "context": {
+    "max_threads_per_user": 10,
+    "cleanup_interval": 3600.0,
+    "default_ttl": 86400.0,
+    "max_interactions_per_thread": 100
+  },
+  "routing": {
+    "default_strategy": "confidence_based",
+    "max_routing_depth": 5,
+    "routing_timeout": 10.0,
+    "enable_caching": true,
+    "cache_ttl": 300.0
+  },
+  "collaboration": {
+    "confidence_threshold": 0.7,
+    "max_collaborating_agents": 3,
+    "collaboration_timeout": 60.0,
+    "enable_consensus": true
+  },
+  "scaling": {
+    "evaluation_interval": 30.0,
+    "scale_up_threshold": 0.8,
+    "scale_down_threshold": 0.3,
+    "min_idle_time": 300.0,
+    "max_scale_factor": 2.0
+  },
+  "monitoring": {
+    "collection_interval": 60.0,
+    "metrics_retention": 86400.0,
+    "enable_detailed_metrics": true,
+    "alert_thresholds": {
+      "error_rate": 0.1,
+      "response_time": 5.0,
+      "memory_usage": 0.9,
+      "cpu_usage": 0.9
+    }
+  },
+  "knowledge": {
+    "propagation_enabled": true,
+    "relevance_threshold": 0.6,
+    "max_knowledge_age": 604800.0,
+    "cleanup_interval": 3600.0
+  },
+  "intent_graph": {
+    "max_nodes_per_user": 1000,
+    "edge_weight_decay": 0.95,
+    "prediction_depth": 3,
+    "cleanup_interval": 3600.0
+  },
+  "api": {
+    "host": "0.0.0.0",
+    "port": 5000,
+    "debug": false,
+    "cors_enabled": true,
+    "rate_limiting": {
+      "enabled": true,
+      "requests_per_minute": 60,
+      "burst_size": 10
+    }
+  },
+  "security": {
+    "enable_authentication": false,
+    "api_key_required": false,
+    "allowed_origins": ["*"],
+    "max_request_size": 1048576
+  },
+  "performance": {
+    "cache_size": 10000,
+    "cache_ttl": 3600,
+    "load_balancing_strategy": "predictive",
+    "enable_compression": true,
+    "max_concurrent_requests": 100
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "file": null,
+    "max_file_size": 10485760,
+    "backup_count": 5
+  }
+}

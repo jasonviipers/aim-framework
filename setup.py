@@ -8,11 +8,21 @@ import os
 
 # Read the README file
 def read_readme():
+    """Read the contents of the README.md file.
+    
+    Returns:
+        str: Content of the README file
+    """
     with open("README.md", "r", encoding="utf-8") as fh:
         return fh.read()
 
 # Read requirements
 def read_requirements():
+    """Read the requirements from requirements.txt.
+    
+    Returns:
+        List[str]: List of required packages
+    """
     with open("requirements.txt", "r", encoding="utf-8") as fh:
         return [line.strip() for line in fh if line.strip() and not line.startswith("#")]
 

@@ -16,17 +16,16 @@ from .exceptions import ContextNotFoundError, ValidationError
 
 @dataclass
 class ContextInteraction:
-    """
-    Represents a single interaction within a context thread.
+    """Represents a single interaction within a context thread.
 
     Attributes:
-        interaction_id (str): Unique identifier for the interaction
-        request_content (str): The request content
-        response_content (str): The response content
-        agent_id (str): ID of the agent that handled the interaction
-        timestamp (float): When the interaction occurred
-        confidence (float): Confidence score for the interaction
-        metadata (Dict[str, Any]): Additional metadata
+        interaction_id: Unique identifier for the interaction
+        request_content: The request content
+        response_content: The response content
+        agent_id: ID of the agent that handled the interaction
+        timestamp: When the interaction occurred
+        confidence: Confidence score for the interaction
+        metadata: Additional metadata
     """
 
     interaction_id: str = field(default_factory=lambda: str(uuid.uuid4()))
