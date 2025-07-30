@@ -31,7 +31,7 @@ Example usage:
 
 __version__ = "1.0.0"
 __author__ = "jasonviipers"
-__email__ = "support@jasonviipers"
+__email__ = "support@jasonviipers.com"
 __license__ = "MIT"
 
 from .api.client import AIMClient

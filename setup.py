@@ -30,7 +30,7 @@ setup(
     name="aim-framework",
     version="1.0.0",
     author="jasonviipers",
-    author_email="support@jasonviipers",
+    author_email="support@jasonviipers.com",
     description="Adaptive Intelligence Mesh - A distributed coordination system for AI deployment and interaction",
     long_description=read_readme(),
     long_description_content_type="text/markdown",

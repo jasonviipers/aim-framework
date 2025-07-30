@@ -1,0 +1,93 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aim-framework
+  namespace: aim-framework
+  labels:
+    app: aim-framework
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: aim-framework
+  template:
+    metadata:
+      labels:
+        app: aim-framework
+    spec:
+      containers:
+      - name: aim-framework
+        image: aim-framework:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+          name: http
+        env:
+        - name: AIM_CONFIG_FILE
+          value: "/app/config/production.json"
+        - name: AIM_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: aim-secrets
+              key: secret-key
+        - name: AIM_JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: aim-secrets
+              key: jwt-secret
+        - name: AIM_DB_URL
+          valueFrom:
+            secretKeyRef:
+              name: aim-secrets
+              key: database-url
+        volumeMounts:
+        - name: config
+          mountPath: /app/config
+          readOnly: true
+        - name: logs
+          mountPath: /app/logs
+        - name: data
+          mountPath: /app/data
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 1000
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: false
+          capabilities:
+            drop:
+            - ALL
+      volumes:
+      - name: config
+        configMap:
+          name: aim-config
+      - name: logs
+        persistentVolumeClaim:
+          claimName: aim-logs-pvc
+      - name: data
+        persistentVolumeClaim:
+          claimName: aim-data-pvc
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
